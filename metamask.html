@@ -3,50 +3,16 @@
 <body>
     
 <button class="sendEthButton btn">Buy Artopus</button>
-<label id="tokenURI">ipfs://myart.URI</label><br>
-<button class="listNFTButton btn">List My NFTs</button><br>
-
-
-<script src='./node_modules/sql.js/dist/sql-wasm.js'></script>
-<script>
-  
-  // const tables = [];
-  const listNFTButton = document.querySelector('.listNFTButton');
-  listNFTButton.addEventListener('click', () => {
-      query();
-  });
-  
-  async function query() {
-      const sqlPromise = initSqlJs({
-	  locateFile: file => `/node_modules/sql.js/dist/${file}`
-      });
-      const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-      const dataPromise = fetch("/database/nft.db").then(res => res.arrayBuffer());
-      const [SQL, buf] = await Promise.all([sqlPromise, dataPromise])
-      const db = new SQL.Database(new Uint8Array(buf));
-      
-      // WARNING: this query is wrong for listing all NFTs.
-      const stmt = db.prepare("SELECT tid, tURI, txid FROM TXs WHERE _to=?");
-      stmt.bind([accounts[0]]);
-      while (stmt.step()) {
-	  console.log(stmt.get());
-	  // tables.push(stmt.get());
-      } 
-  }
 
 
 
 </script>
 <script type="module">
-  // ethers: get transcation encoded abi
-  // WARNING: need CORS unblock, NEED TO FIX
-  import { ethers } from "https://cdn.ethers.io/lib/ethers-5.2.esm.min.js";
-  const iface = new ethers.utils.Interface(["function buy(address, string)"]);
 
   const sendEthButton = document.querySelector('.sendEthButton');
 
   let accounts = [];
-  let data;
+  let data="0xa6f2ae3a";
 
   sendEthButton.addEventListener('click', () => {
       getAccount().then(() => {
@@ -56,10 +22,8 @@
 		  params: [
 		      {
 			  from: accounts[0],
-			  to: '0xDA741963883751370739861C7c56BfD705075C3C',
-			  value: '0x29a2241af62c0000',
-			  gasPrice: '0x10',
-			  gas: '0x115208',
+			  to: '0xf18C27e72cB56AE8A9112B4F4a24684f56E637EA',
+			  value: '0x3b9aca00',
 			  data: data,
 		      },
 		  ],
@@ -71,8 +35,6 @@
   
   async function getAccount() {
       accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-      var tokenURI = document.getElementById('tokenURI');
-      data = iface.encodeFunctionData("buy", [accounts[0],tokenURI.innerText]);
   }
 </script>
 
