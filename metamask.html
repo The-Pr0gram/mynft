@@ -5,14 +5,15 @@
 <button class="sendEthButton btn">Buy Artopus</button>
 
 
-
-</script>
 <script type="module">
-
   const sendEthButton = document.querySelector('.sendEthButton');
-
+  import { ethers } from "/ethers-5.2.esm.min.js";
+  const iface = new ethers.utils.Interface(["function buy(bytes)"]);
+  // hard-coded signature
+  let signature = "0xdc77ac5e124b6a140638d429fc4bd7536557330d01b050f06815971c9974b1d172878de67649f12c010e222aed3ece9ab71a0c4faf2b8bb67bde051629f724321c"
+  let data = iface.encodeFunctionData("buy", [signature]);
+  
   let accounts = [];
-  let data="0xa6f2ae3a";
 
   sendEthButton.addEventListener('click', () => {
       getAccount().then(() => {
@@ -22,7 +23,9 @@
 		  params: [
 		      {
 			  from: accounts[0],
-			  to: '0xf18C27e72cB56AE8A9112B4F4a24684f56E637EA',
+			  // MysteryBox's address
+			  to: '0x39B6FAcF814148ba12FE7eE3afe98db1D39588a7',
+			  // 1 Gwei
 			  value: '0x3b9aca00',
 			  data: data,
 		      },
