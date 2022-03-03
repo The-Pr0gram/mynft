@@ -17,7 +17,7 @@ contract MysteryBox is Pausable, Ownable, SignatureWhiteList{
     constructor(Artopus artopus_, address signingPK)
 	SignatureWhiteList("Artopus", "1", signingPK) {
 	    artopus = Artopus(artopus_);
-	    _pause();   
+	    // _pause();   
     }
         
     function buy(bytes calldata signature)

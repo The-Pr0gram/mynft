@@ -19,8 +19,10 @@ contract Artopus is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable, 
     uint256 public constant MAX_ARTOPUS_PRE_ADDRESS = 5;
     string public constant URI_PROVENACE = "ipfs://xyz";
 
-    constructor(address[] memory payees, uint256[] memory shares_) 
-        ERC721("Artopus", "APS") PaymentSplitter(payees, shares_) {}
+    constructor(address[] memory payees, uint256[] memory shares_, address minter_) 
+        ERC721("Artopus", "APS") PaymentSplitter(payees, shares_) {
+            minter = minter_;
+        }
 
     function pause() public onlyOwner {
         _pause();
@@ -71,8 +73,12 @@ contract Artopus is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable, 
     
 
     // The following functions are overrides required by Solidity.
+    function _baseURI() internal pure override returns (string memory) {
+        return "ipfs://";
+    }
 
-   function _beforeTokenTransfer(address from, address to, uint256 tokenId)
+
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId)
         internal
         whenNotPaused
         override(ERC721, ERC721Enumerable)

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -12,8 +12,9 @@ abstract contract SignatureWhiteList is EIP712, Ownable {
     address public whitelistSigningKey = address(0);
     
     constructor(string memory name, string memory version, address whitelistSigningKey_)
-	EIP712(name, version){
-	whitelistSigningKey = whitelistSigningKey_;
+	    EIP712(name, version)
+    {
+	    whitelistSigningKey = whitelistSigningKey_;
     }
 
     function setWhitelistSigningAddress(address newSigningKey) public onlyOwner {

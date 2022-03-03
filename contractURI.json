@@ -1,8 +1,8 @@
 {
-    "name": "OpenSea Creatures",
-    "description": "OpenSea Creatures are adorable aquatic beings primarily for demonstrating what can be done using the OpenSea platform. Adopt one today to try out all the OpenSea buying, selling, and bidding feature set.",
-    "image": "https://openseacreatures.io/image.png",
-    "external_link": "https://openseacreatures.io",
+    "name": "Artopus",
+    "description": "Artopus",
+    "image": "https://mshuaic.github.io/mynft/mint/dogs/dog.4001.jpg",
+    "external_link": "https://mshuaic.github.io/mynft/",
     "seller_fee_basis_points": 100, 
     "fee_recipient": "0xA97F337c39cccE66adfeCB2BF99C1DdC54C2D721" 
 }
