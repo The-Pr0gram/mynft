@@ -1,32 +1,20 @@
 # NFT
 
 
-**All contracts are on goerli testnet.**
+**All contracts are on Rinkeby testnet.**
 
-* NFT address [etherscan](https://goerli.etherscan.io/address/0xeaFFc2242353EeD6E09930896Ca06e165ba4E3Ff):
+* NFT address [etherscan](https://rinkeby.etherscan.io/address/0xeaffc2242353eed6e09930896ca06e165ba4e3ff):
 
 		0xeaFFc2242353EeD6E09930896Ca06e165ba4E3Ff
 			
 
-* MysteryBox address [etherscan](https://goerli.etherscan.io/address/0xf18c27e72cb56ae8a9112b4f4a24684f56e637ea):
-
-		0xf18C27e72cB56AE8A9112B4F4a24684f56E637EA
+* connect metamask to Rinkey testnet
 
 
-* connect metamask to goerli testnet
+* [Rinkey Faucet](https://faucet.rinkeby.io/) can add eth to your account
 
-
-* [Goeril Faucet](https://faucet.goerli.mudit.blog/) can add eth to your account
-
-
-* ask Mark to add your account to the whitelist 
-  or add `0x040EE8A42dC92D54073fDeAB4c6eD3F979Da4aED` to metamask, private key is in wechat.
-  
-
-* import token assets display at metamask
-  address: `0xeaFFc2242353EeD6E09930896Ca06e165ba4E3Ff`
+* Ask Mark for the signature
   
 * click `Buy Artopus` button at metamask.html
 
-
-* you should see `0 APS` -> `1 APS`. you can also check it at [etherscan](https://goerli.etherscan.io/address/0xf18c27e72cb56ae8a9112b4f4a24684f56e637ea)
+* check your assets on (opensea)https://testnets.opensea.io/
