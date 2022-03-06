@@ -1,45 +1,50 @@
 <!doctype html>
 <html lang="en">
-<body>
+  <body>
+    <label for="signature">Signature:</label>
+    <br>
+    <textarea id="signature" name="signature" rows="4" cols="50"></textarea>
+    <br>
+    <button class="sendEthButton btn">Buy Artopus</button>
     
-<button class="sendEthButton btn">Buy Artopus</button>
-
-
-<script type="module">
-  const sendEthButton = document.querySelector('.sendEthButton');
-  import { ethers } from "/ethers-5.2.esm.min.js";
-  const iface = new ethers.utils.Interface(["function buy(bytes)"]);
-  // hard-coded signature
-  let signature = "0xdc77ac5e124b6a140638d429fc4bd7536557330d01b050f06815971c9974b1d172878de67649f12c010e222aed3ece9ab71a0c4faf2b8bb67bde051629f724321c"
-  let data = iface.encodeFunctionData("buy", [signature]);
-  
-  let accounts = [];
-
-  sendEthButton.addEventListener('click', () => {
-      getAccount().then(() => {
-	  ethereum
-	      .request({
-		  method: 'eth_sendTransaction',
-		  params: [
-		      {
-			  from: accounts[0],
-			  // MysteryBox's address
-			  to: '0x39B6FAcF814148ba12FE7eE3afe98db1D39588a7',
-			  // 1 Gwei
-			  value: '0x3b9aca00',
-			  data: data,
-		      },
-		  ],
-	      })
+    
+    <script type="module">
+      const sendEthButton = document.querySelector('.sendEthButton');
+      import { ethers } from "/ethers-5.2.esm.min.js";
+      const iface = new ethers.utils.Interface(["function buy(bytes)"]);
+      // hard-coded signature
+      let signature;
+      let data;
+      
+      let accounts = [];
+      
+      sendEthButton.addEventListener('click', () => {
+	  signature = document.getElementById("signature").value;
+	  data = iface.encodeFunctionData("buy", [signature]);
+	  getAccount().then(() => {
+	      ethereum
+		  .request({
+		      method: 'eth_sendTransaction',
+		      params: [
+			  {
+			      from: accounts[0],
+			      // MysteryBox's address
+			      to: '0x8E0415CC04cE91a905633C5B9619976Ee7c4E66A',
+			      // 1 Gwei
+			      value: '0x3b9aca00',
+			      data: data,
+			  },
+		      ],
+		  })
 	      .then((txHash) => console.log(txHash))
-	      .catch((error) => console.error);
+		  .catch((error) => console.error);
+	  });
       });
-  });
-  
-  async function getAccount() {
-      accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-  }
-</script>
-
-</body>
+      
+      async function getAccount() {
+	  accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+      }
+    </script>
+    
+  </body>
 </html>

@@ -3,6 +3,6 @@
     "description": "Artopus",
     "image": "https://mshuaic.github.io/mynft/mint/dogs/dog.4001.jpg",
     "external_link": "https://mshuaic.github.io/mynft/",
-    "seller_fee_basis_points": 100, 
-    "fee_recipient": "0xA97F337c39cccE66adfeCB2BF99C1DdC54C2D721" 
+    "seller_fee_basis_points": 250, 
+    "fee_recipient": "0x8E0415CC04cE91a905633C5B9619976Ee7c4E66A" 
 }

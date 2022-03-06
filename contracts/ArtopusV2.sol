@@ -22,7 +22,7 @@ contract Artopus is ERC721, ERC721URIStorage, ERC721Enumerable, ERC721Burnable, 
     uint256 public constant MAX_ARTOPUS = 5000;    
     uint256 public constant MAX_ARTOPUS_PRE_ADDRESS = 5;
     uint256 public constant RESERVED_ARTOPUS = 50;
-    string public constant contractURI = " ";
+    string public constant contractURI = "https://mshuaic.github.io/mynft/contractURI.json";
     string public constant URI_PROVENACE = "ipfs://xyz";
     string public baseURI;
     

@@ -9,7 +9,7 @@ abstract contract SignatureWhiteList is EIP712, Ownable {
     bytes32 public constant TYPE_HASH =
         keccak256("WhiteListAddress(address whitelisted)");
 
-    address public whitelistSigningKey = address(0);
+    address public whitelistSigningKey;
     
     constructor(string memory name, string memory version, address whitelistSigningKey_)
 	    EIP712(name, version)
@@ -24,7 +24,8 @@ abstract contract SignatureWhiteList is EIP712, Ownable {
     modifier whitelisted(bytes calldata signature)
     {
 	bytes32 digest = _hashTypedDataV4(keccak256(abi.encode(TYPE_HASH, _msgSender())));
-	require(whitelistSigningKey == ECDSA.recover(digest, signature),
+	require(whitelistSigningKey == address(0) ||
+		whitelistSigningKey == ECDSA.recover(digest, signature),
 		"no matching signing key");
 	_;
     }
