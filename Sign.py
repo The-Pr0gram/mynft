@@ -45,6 +45,15 @@ msg = {
 }
 
 
+def sign(sk, contract, whitelisted, cid):
+    msg["message"]["whitelisted"] = whitelisted
+    msg["domain"]["chainId"] = cid
+    msg["domain"]["verifyingContract"] = contract
+    message = encode_structured_data(msg)
+    s = Web3().eth.account.sign_message(message, sk)
+    return s.signature
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Sign Message')
     parser.add_argument("sk", metavar="private_key", type=str)
@@ -54,19 +63,7 @@ if __name__ == "__main__":
                         nargs='?', help="default: %(default)s")
 
     args = parser.parse_args()
-    sk = args.sk  # signing private okey
-    msg["message"]["whitelisted"] = args.address
-    msg["domain"]["chainId"] = args.cid
-    msg["domain"]["verifyingContract"] = args.contract
-    message = encode_structured_data(msg)
-    s = Web3().eth.account.sign_message(message, sk)
-    print(s.signature.hex())
 
+    signature = sign(args.sk, args.contract, args.address, args.cid)
 
-def sign(sk, contract, whitelisted, cid):
-    msg["message"]["whitelisted"] = whitelisted
-    msg["domain"]["chainId"] = cid
-    msg["domain"]["verifyingContract"] = contract
-    message = encode_structured_data(msg)
-    s = Web3().eth.account.sign_message(message, sk)
-    return s.signature
+    print(signature.hex())
