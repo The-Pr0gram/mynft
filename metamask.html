@@ -10,7 +10,7 @@
     
     <script type="module">
       const sendEthButton = document.querySelector('.sendEthButton');
-      import { ethers } from "/ethers-5.2.esm.min.js";
+      import { ethers } from "./ethers-5.2.esm.min.js";
       const iface = new ethers.utils.Interface(["function buy(bytes)"]);
       // hard-coded signature
       let signature;
