@@ -3,9 +3,9 @@
 
 **All contracts are on Rinkeby testnet.**
 
-* NFT address [etherscan](https://rinkeby.etherscan.io/address/0xeaffc2242353eed6e09930896ca06e165ba4e3ff):
+* NFT address [etherscan](https://rinkeby.etherscan.io/address/0x8E0415CC04cE91a905633C5B9619976Ee7c4E66A):
 
-		0xeaFFc2242353EeD6E09930896Ca06e165ba4E3Ff
+		0x8E0415CC04cE91a905633C5B9619976Ee7c4E66A 
 			
 
 * connect metamask to Rinkey testnet
