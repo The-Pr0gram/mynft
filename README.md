@@ -17,4 +17,4 @@
   
 * click `Buy Artopus` button at metamask.html
 
-* check your assets on (opensea)https://testnets.opensea.io/
+* check your assets on [opensea](https://testnets.opensea.io/)
